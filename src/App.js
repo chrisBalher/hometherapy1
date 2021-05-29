@@ -19,7 +19,7 @@ class App extends Component {
             <NavbarBrand href="/">Home Therapy</NavbarBrand>
           </div>
         </Navbar>
-        <Menu dishes={this.state.dishes} />
+        < Menu dishes={this.state.dishes} />
       </div>
     );
   }

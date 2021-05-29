@@ -3,28 +3,28 @@ import {Card, CardImg, CardText, CardBody, CardTitle, Col} from 'reactstrap';
 import {ListGroup} from 'reactstrap';
 
 
-
 class DishDetail extends Component{
 
-    constructor(props) {
-        super(props);
-    }
-
     renderDish(dish){
-        return (
-            <Card key={dish.id}>
-                 <CardImg width="100%" src={dish.image}  alt={dish.name} />
-                 <CardBody>
-                     <CardTitle>{dish.name}</CardTitle>
-                     <CardText>{dish.description}</CardText>
-                 </CardBody>
-            </Card>
-        )
+        if(dish!=null){
+            return (
+                <Card key={dish.id}>
+                    <CardImg width="100%" src={dish.image}  alt={dish.name} />
+                    <CardBody>
+                        <CardTitle>{dish.name}</CardTitle>
+                        <CardText>{dish.description}</CardText>
+                    </CardBody>
+                </Card>
+            )
+        }
+        else{
+            return <div></div>
+        }
    }
 
    renderComments(dish){
 
-        if(dish.comments != null)
+        if(dish != null)
         {
             const comments=dish.comments.map((eachItem)=>{
                 return(
@@ -59,12 +59,12 @@ class DishDetail extends Component{
         return(
             <div className="container">
                 <div className = "row">
-                    <Col className="col-12 col-md-5 m-1">
+                    <div className = "col-md-5" >
                         {this.renderDish(this.props.dish)}
-                    </Col>
-                    <Col className="col-12 col-md-5 m-1">
+                    </div>
+                    <div className = "col-md-5" >
                         {this.renderComments(this.props.dish)}
-                    </Col>
+                    </div>
                 </div>
             </div>
         )
